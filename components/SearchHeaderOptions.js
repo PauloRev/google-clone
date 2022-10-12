@@ -10,7 +10,7 @@ export default function SearchHeaderOptions() {
   };
 
   return (
-    <div className="w-full border-b-2 border-gray-100 flex items-center sm:pl-[10%]">
+    <div className="w-full border-b-2 border-gray-100 flex items-center justify-center sm:pl-[10%] sm:justify-start">
       <div className="flex space-x-7">
         {router?.query.searchType !== '' || router?.query.searchType ? (
           <div
@@ -26,10 +26,10 @@ export default function SearchHeaderOptions() {
             <p className="ml-1 text-[#4285f4]">All</p>
           </div>
         )}
-        {router?.query.searchType !== 'images' ? (
+        {router?.query.searchType !== 'image' ? (
           <div
             className="flex items-center cursor-pointer"
-            onClick={() => handleSearchType('images')}
+            onClick={() => handleSearchType('image')}
           >
             <ImageIcon color="#2c2c2c" width="w-5" height="h-5" />
             <p className="ml-1">Images</p>
