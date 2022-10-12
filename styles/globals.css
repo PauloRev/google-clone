@@ -11,4 +11,7 @@ body {
   .link {
     @apply hover:underline cursor-pointer
   }
+  .btnLogin {
+    @apply hover:scale-105 transition-all delay-75
+  }
 }
