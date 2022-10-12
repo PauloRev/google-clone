@@ -1,4 +1,4 @@
-import User from "../components/User";
+import User from './User';
 
 export default function Header() {
   return (
@@ -13,5 +13,5 @@ export default function Header() {
         <User />
       </div>
     </header>
-  )
+  );
 }

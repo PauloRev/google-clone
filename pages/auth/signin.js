@@ -1,4 +1,4 @@
-import Header from '../_header';
+import Header from '../../components/Header';
 import { getProviders, signIn } from 'next-auth/react';
 
 export default function signin({ providers }) {
@@ -14,7 +14,7 @@ export default function signin({ providers }) {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
               alt="logo"
-              className="max-w-[400px] w-full block mx-auto"
+              className="w-[300px] h-[100px] block mx-auto"
             />
             <p className="my-7 text-sm italic">
               This website is created for learning purposes
