@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import SearchHeader from '../../components/SearchHeader';
+import SearchResults from '../../components/SearchResults';
 import ResultsMock from '../../services/ResultsMock';
 
 export default function Search({ results }) {
@@ -13,6 +14,8 @@ export default function Search({ results }) {
       </Head>
 
       <SearchHeader />
+
+      <SearchResults results={results} />
     </>
   );
 }
