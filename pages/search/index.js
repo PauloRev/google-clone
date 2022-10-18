@@ -35,8 +35,8 @@ export async function getServerSideProps(context) {
     ? ResultsMock
     : await fetch(
         `https://www.googleapis.com/customsearch/v1?key=${
-          process.env.API_KEY
-        }&cx=${process.env.CONTEXT_KEY}&q=${context?.query.term}${
+          process.env.NEXT_PUBLIC_API_KEY
+        }&cx=${process.env.NEXT_PUBLIC_CONTEXT_KEY}&q=${context?.query.term}${
           context?.query.searchType && '&searchType=image'
         }&start=${startIndex}`
       ).then((res) => res.json());
