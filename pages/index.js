@@ -42,6 +42,15 @@ export default function Home() {
     );
   };
 
+  const handleRandomSearch = async (e) => {
+    e.preventDefault();
+    const randomTerm = await fetch(
+      'https://random-word-api.herokuapp.com/word?number=1'
+    ).then((res) => res.json());
+    if (!randomTerm) return;
+    router.push(`/search?term=${randomTerm}&searchType=`);
+  };
+
   const handleListening = () => {
     if (!browserSupportsSpeechRecognition) {
       alert('This function not supported in your browser!');
@@ -98,9 +107,9 @@ export default function Home() {
           <button onClick={handleSearch} className="btn">
             Google Search
           </button>
-          <Link href="https://github.com/PauloRev/google-clone">
-            <button className="btn">Github Project</button>
-          </Link>
+          <button className="btn" onClick={handleRandomSearch}>
+            I&apos;m Feeling Lucky
+          </button>
         </div>
       </form>
 
