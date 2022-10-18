@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Parser from 'html-react-parser';
+import PaginationButtons from './PaginationButtons';
 
 export default function SearchResults({ results }) {
   const router = useRouter();
@@ -11,7 +12,7 @@ export default function SearchResults({ results }) {
         <title>{router.query.term} - Search page</title>
       </Head>
       <div className="w-full mx-auto px-4 sm:pl-[5%] md:pl-[10%]">
-        <p className="text-gray-600 text-sm mt-4 mb-8">
+        <p className="text-gray-600 text-sm mt-4 mb-6">
           About {results.searchInformation.formattedTotalResults} results (
           {results.searchInformation.formattedSearchTime} seconds)
         </p>
@@ -33,6 +34,7 @@ export default function SearchResults({ results }) {
             <p className="text-gray-800">{Parser(result.htmlSnippet)}</p>
           </div>
         ))}
+        <PaginationButtons />
       </div>
     </>
   );
