@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 import SearchIcon from './assets/icons/search';
 import CloseIcon from './assets/icons/close';
 import MicrophoneIcon from './assets/icons/microphone';
+import Link from 'next/link';
 
 export default function Home() {
   const router = useRouter();
@@ -97,9 +98,9 @@ export default function Home() {
           <button onClick={handleSearch} className="btn">
             Google Search
           </button>
-          <button disabled className="btn">
-            Im Feeling Luck
-          </button>
+          <Link href="https://github.com/PauloRev/google-clone">
+            <button className="btn">Github Project</button>
+          </Link>
         </div>
       </form>
 

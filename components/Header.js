@@ -1,7 +1,10 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import User from './User';
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="flex justify-between p-6 text-sm text-gray-700">
       <div className="flex space-x-4 items-center">
@@ -16,9 +19,16 @@ export default function Header() {
         <Link href="https://mail.google.com/mail">
           <a className="link">Gmail</a>
         </Link>
-        <Link href="https://github.com/PauloRev/google-clone">
-          <a className="link">Github</a>
-        </Link>
+        <a
+          onClick={() =>
+            router.push(
+              `/search?term=${router.query?.term || 'google'}&searchType=image`
+            )
+          }
+          className="link"
+        >
+          Images
+        </a>
         <User />
       </div>
     </header>
