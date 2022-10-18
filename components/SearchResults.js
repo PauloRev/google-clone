@@ -3,8 +3,15 @@ import { useRouter } from 'next/router';
 import Parser from 'html-react-parser';
 import PaginationButtons from './PaginationButtons';
 
+import SpeechRecognition from 'react-speech-recognition';
+import { useEffect } from 'react';
+
 export default function SearchResults({ results }) {
   const router = useRouter();
+
+  useEffect(() => {
+    SpeechRecognition.stopListening();
+  }, []);
 
   return (
     <>
@@ -13,8 +20,8 @@ export default function SearchResults({ results }) {
       </Head>
       <div className="w-full mx-auto px-4 sm:pl-[5%] md:pl-[10%]">
         <p className="text-gray-600 text-sm mt-4 mb-6">
-          About {results.searchInformation.formattedTotalResults} results (
-          {results.searchInformation.formattedSearchTime} seconds)
+          About {results.searchInformation?.formattedTotalResults} results (
+          {results.searchInformation?.formattedSearchTime} seconds)
         </p>
         {results.items?.map((result) => (
           <div key={result.link} className="max-w-xl mb-8">

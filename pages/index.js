@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import SpeechRecognition, {
+  useSpeechRecognition,
+} from 'react-speech-recognition';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,13 +15,43 @@ import MicrophoneIcon from './assets/icons/microphone';
 
 export default function Home() {
   const router = useRouter();
+  const inputSearchRef = useRef();
 
-  const [searchInput, setSearchInput] = useState('');
+  const [isListening, setIsListening] = useState(false);
+
+  const commands = [
+    {
+      command: '*',
+      callback: (term) => {
+        if (term) {
+          router.push(`/search?term=${term.trim()}&searchType=`);
+        }
+      },
+    },
+  ];
+
+  const { resetTranscript, browserSupportsSpeechRecognition } =
+    useSpeechRecognition({ commands });
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (!searchInput.trim()) return;
-    router.push(`/search?term=${searchInput.trim()}&searchType=`);
+    if (!inputSearchRef.current.value.trim()) return;
+    router.push(
+      `/search?term=${inputSearchRef.current.value.trim()}&searchType=`
+    );
+  };
+
+  const handleListening = () => {
+    if (!browserSupportsSpeechRecognition) {
+      alert('This function not supported in your browser!');
+      return;
+    }
+
+    resetTranscript();
+    setIsListening(!isListening);
+    SpeechRecognition.startListening({
+      continuous: true,
+    });
   };
 
   return (
@@ -40,22 +73,25 @@ export default function Home() {
           <SearchIcon color="#999" width="w-5" height="h-5" />
           <input
             type="text"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            ref={inputSearchRef}
             className="flex-grow focus:outline-none mx-2"
           />
-          {searchInput.length >= 1 && (
+          {inputSearchRef?.current?.value.length >= 1 && (
             <div className="flex">
-              <span
-                onClick={() => setSearchInput('')}
-                className="cursor-pointer"
-              >
+              <span onClick={handleCleanInput()} className="cursor-pointer">
                 <CloseIcon color="#999" width="w-5" height="h-5" />
               </span>
               <span className="border-l-2 border-gray-300 mr-6 ml-2"></span>
             </div>
           )}
-          <MicrophoneIcon color="#2c2c2c" width="w-5" height="h-5" />
+          <span
+            className={`cursor-pointer p-1 ${
+              isListening && 'bg-blue-200 rounded-full'
+            }`}
+            onClick={handleListening}
+          >
+            <MicrophoneIcon color="#2c2c2c" width="w-5" height="h-5" />
+          </span>
         </div>
         <div className="flex sm:flex-col sm:w-[100%] md:flex-row md:w-[50%] items-center justify-center">
           <button onClick={handleSearch} className="btn">

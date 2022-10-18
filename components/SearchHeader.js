@@ -50,9 +50,6 @@ export default function SearchHeader() {
               <span className="border-r-2 border-gray-300 mr-6 hidden sm:inline-flex"></span>
             </div>
           )}
-          <span className="hidden sm:inline-flex mr-3 cursor-pointer">
-            <MicrophoneIcon color="#4285f4" width="w-5" height="h-5" />
-          </span>
           <span
             className="hidden sm:inline-flex  cursor-pointer"
             onClick={handleSearch}
