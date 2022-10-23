@@ -1,5 +1,6 @@
 <h1 align="center">
-  <img src="https://i.imgur.com/yt1xlne.png" width="100px" style="display: block; margin: 10px auto;">
+  <img src="https://i.imgur.com/yt1xlne.png" width="100px">
+  <br/>
   Google Clone
 </h1>
 
