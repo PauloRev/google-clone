@@ -36,6 +36,7 @@ This project was created with study purposes, with following technologies:
 - [NextJS](https://nextjs.org)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Tailwind](https://tailwindcss.com/)
+- [Google API](https://developers.google.com/)
 - [Vercel](https://vercel.com/)
 
 ## License
