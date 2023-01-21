@@ -10,11 +10,11 @@
 
 <p align="center">
   <br/>
-  <img src="https://img.shields.io/github/languages/top/PauloRev/google-clone">
-  <img src="https://img.shields.io/github/issues/PauloRev/google-clone">
-  <img src="https://img.shields.io/github/forks/PauloRev/google-clone">
-  <img src="https://img.shields.io/github/stars/PauloRev/google-clone">
-  <img src="https://img.shields.io/github/license/PauloRev/google-clone">
+  <img src="https://img.shields.io/github/languages/top/paulhdev/google-clone">
+  <img src="https://img.shields.io/github/issues/paulhdev/google-clone">
+  <img src="https://img.shields.io/github/forks/paulhdev/google-clone">
+  <img src="https://img.shields.io/github/stars/paulhdev/google-clone">
+  <img src="https://img.shields.io/github/license/paulhdev/google-clone">
 </p>
 
 <h4 align="center">
@@ -45,4 +45,4 @@ This project is licensed under the MIT License. See [LICENSE](https://opensource
 
 ___
 
-Made with love by Paulo Henrique :wave: [Get in touch](https://github.com/PauloRev)
+Made with love by Paulo Henrique :wave: [Get in touch](https://github.com/paulhdev)
